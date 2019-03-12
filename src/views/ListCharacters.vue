@@ -1,10 +1,12 @@
 <template>
-  <div class="list-characters">
+  <section>
     <input v-model="inputSearch">
-    <template v-if="characters.length > 0">
-    <Character v-for="character of characters" :character="character" :key="character.id"/>
-    </template>
-  </div>
+    <div class="list-characters" v-if="characters.length > 0">
+      <template v-if="characters.length > 0">
+        <Character v-for="character of characters" :character="character" :key="character.id"/>
+      </template>
+    </div>
+  </section>
 </template>
 
 <script>
@@ -50,3 +52,10 @@ export default {
   }
 }
 </script>
+
+<style scoped lang="scss">
+  .list-characters {
+    display: flex;
+    flex-wrap: wrap;
+  }
+</style>
