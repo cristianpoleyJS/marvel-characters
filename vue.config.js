@@ -8,10 +8,17 @@ module.exports = {
     loaderOptions: {
       sass: {
         data: `
-          '@import "@/assets/scss/_variables.scss";',
-          '@import "@/assets/scss/_mixins.scss";'
-        `
+              @import "@/assets/scss/_variables.scss";
+              @import "@/assets/scss/_mixins.scss";
+            `
       }
+    }
+  },
+
+  configureWebpack: {
+    output: {
+      filename: 'js/build.js',
+      chunkFilename: 'js/[name].js'
     }
   },
 
