@@ -59,7 +59,7 @@ export default {
     border-radius: 3px;
     border: 1px solid #c4c4c4;
     &__photo {
-      margin: 1px;
+      margin: 2px;
       background-position-y: center;
       background-size: cover;
       height: rem(200);

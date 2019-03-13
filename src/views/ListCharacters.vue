@@ -26,23 +26,21 @@
           :character="character" />
       </template>
     </div>
-    <span
-      v-else
-      class="not-found-results">
-      No characters were found for the text you are looking for.
-    </span>
+    <NotFound v-else />
   </section>
 </template>
 
 <script>
 import { MARVEL_KEY } from '@/utils/constants'
 import Character from '@/components/Character'
+import NotFound from '@/components/NotFound'
 import Spinner from '@/components/Spinner'
 
 export default {
   name: 'ListCharacters',
   components: {
     Character,
+    NotFound,
     Spinner
   },
   data () {
@@ -131,7 +129,7 @@ export default {
         color: $secondary-text-color;
         border: 1px solid $divider-color;
         padding-left: 0.5rem;
-        padding: 0 0.5rem;
+        padding: 0 1rem;
         font-size: 1rem;
         box-sizing: border-box;
         font-weight: 300;
