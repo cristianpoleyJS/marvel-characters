@@ -11,9 +11,11 @@
 export default {
   name: 'Character',
   props: {
-    character: Object,
-    default: () => {
-      return { }
+    character: {
+      type: Object,
+      default: () => {
+        return { }
+      }
     }
   },
   computed: {

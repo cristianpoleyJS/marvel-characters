@@ -1,10 +1,23 @@
 <template>
   <section>
     <!-- Input search characters -->
-    <input v-model="inputSearch">
+    <div class="wrapper-input">
+      <span
+        class="wrapper-input__input-search">
+        <input
+          v-model="inputSearch">
+        <img
+          src="@/assets/images/search.svg"
+          class="wrapper-input__input-search__ico">
+      </span>
+    </div>
+
+    <!-- Spinner loading data -->
+    <Spinner v-if="busy" />
+
     <!-- Print every character when list characters length > 0-->
     <div
-      v-if="characters.length > 0"
+      v-else-if="characters.length > 0"
       class="list-characters">
       <template v-if="characters.length > 0">
         <Character
@@ -13,7 +26,9 @@
           :character="character" />
       </template>
     </div>
-    <span v-else>
+    <span
+      v-else
+      class="not-found-results">
       No characters were found for the text you are looking for.
     </span>
   </section>
@@ -22,11 +37,13 @@
 <script>
 import { MARVEL_KEY } from '@/utils/constants'
 import Character from '@/components/Character'
+import Spinner from '@/components/Spinner'
 
 export default {
   name: 'ListCharacters',
   components: {
-    Character
+    Character,
+    Spinner
   },
   data () {
     return {
@@ -42,6 +59,14 @@ export default {
      */
     characters () {
       return this.$store.getters.getCharacters
+    },
+
+    /**
+     * Loading searching.
+     * @returns {Boolean}
+     */
+    busy () {
+      return this.$store.getters.getBusy
     }
   },
   watch: {
@@ -94,8 +119,44 @@ export default {
 </script>
 
 <style scoped lang="scss">
+  .wrapper-input {
+    text-align: center;
+    &__input-search {
+      position: relative;
+      > input {
+        height: 2.5rem;
+        width: rem(240);
+        border-radius: rem(3);
+        color: $secondary-text-color;
+        border: 1px solid $divider-color;
+        padding-left: 0.5rem;
+        padding: 0 0.5rem;
+        font-size: 1rem;
+        box-sizing: border-box;
+        font-weight: 300;
+        padding-right: 2.2rem;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        &:focus {
+          border: 0;
+          box-shadow: inset 0 0 0 2px $primary-color-light;
+          outline: 0;
+        }
+      }
+      &__ico {
+        position: absolute;
+        right: 0.5rem;
+        width: 1.2rem;
+        bottom: 0;
+      }
+    }
+  }
   .list-characters {
     display: flex;
     flex-wrap: wrap;
+  }
+  .not-found-results {
+    color: $primary-text-color;
   }
 </style>
