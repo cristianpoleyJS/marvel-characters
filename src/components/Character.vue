@@ -55,6 +55,7 @@ export default {
   .character {
     flex: 1 0 25%;
     margin: 1%;
+    min-width: rem(300);
     max-width: rem(375);
     border-radius: 3px;
     border: 1px solid #c4c4c4;

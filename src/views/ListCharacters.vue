@@ -154,6 +154,7 @@ export default {
   .list-characters {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
   }
   .not-found-results {
     color: $primary-text-color;

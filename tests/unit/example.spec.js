@@ -1,12 +1,17 @@
-import { shallowMount } from '@vue/test-utils'
-import HelloWorld from '@/components/HelloWorld.vue'
+import { mount } from '@vue/test-utils'
+import NotFound from '@/components/NotFound.vue'
+import Spinner from '@/components/Spinner.vue'
 
-describe('HelloWorld.vue', () => {
-  it('renders props.msg when passed', () => {
-    const msg = 'new message'
-    const wrapper = shallowMount(HelloWorld, {
-      propsData: { msg }
-    })
-    expect(wrapper.text()).toMatch(msg)
+describe('NotFound.vue', () => {
+  it('renders component NotFound', () => {
+    const wrapper = mount(NotFound)
+    expect(wrapper.isVueInstance()).toBeTruthy()
+  })
+})
+
+describe('Spinner.vue', () => {
+  it('renders component Spinner', () => {
+    const wrapper = mount(Spinner)
+    expect(wrapper.isVueInstance()).toBeTruthy()
   })
 })
