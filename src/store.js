@@ -29,7 +29,7 @@ export default new Vuex.Store({
      * @param {Object} state State app.
      * @param {Array} value New characters (max 12 elements).
      */
-    setCharacters (state, value) {
+    SET_CHARACTERS (state, value) {
       state.characters = value
     },
 
@@ -38,7 +38,7 @@ export default new Vuex.Store({
      * @param {Object} state State app.
      * @param {Boolean} value New value.
      */
-    setBusy (state, value) {
+    SET_BUSY (state, value) {
       state.busy = value
     }
   }
