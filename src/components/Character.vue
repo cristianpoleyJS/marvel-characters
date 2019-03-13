@@ -1,9 +1,13 @@
 <template>
   <div class="character">
-    <img
+    <div
       class="character__photo"
-      :src="photoCharacter">
-    {{ character.name }}
+      :style="{
+        'background-image': `url(${photoCharacter})`
+      }" />
+    <div class="character__info">
+      {{ character.name }}
+    </div>
   </div>
 </template>
 
@@ -33,13 +37,17 @@ export default {
 
 <style scoped lang="scss">
   .character {
-    padding: 2rem;
-    flex: 1 0 20%;
+    flex: 1 0 25%;
     margin: 1%;
     border-radius: 3px;
     border: 1px solid #c4c4c4;
     &__photo {
-      max-width: 200px;
+      background-position-y: center;
+      background-size: cover;
+      height: rem(200);
+    }
+    &__info {
+      padding: 1rem 2rem;
     }
   }
 </style>

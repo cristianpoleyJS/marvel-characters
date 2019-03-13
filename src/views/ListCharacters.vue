@@ -120,6 +120,7 @@ export default {
 
 <style scoped lang="scss">
   .wrapper-input {
+    margin: 2rem 0;
     text-align: center;
     &__input-search {
       position: relative;

@@ -19,7 +19,7 @@ export default {
 <style scoped lang="scss">
     .spinner {
         text-align: center;
-        margin-top: 4rem;
+        margin-top: 10%;
     }
     .lds-ring {
         display: inline-block;
